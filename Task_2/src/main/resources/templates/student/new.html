@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New student</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div th:replace="nav_bar/index.html :: navigation"></div>
+<div class="d-grid gap-2 col-6 mx-auto">
+    <h3>Create new student</h3>
+    <form th:method="POST" th:action="@{/students}" th:object="${student}">
+        <label for="firstName"><b>First name:</b> </label>
+        <input class="form-control" type="text" th:field="*{firstName}" id="firstName" placeholder="Enter first name"/>
+        <br>
+        <label for="secondName"><b>Second name:</b> </label>
+        <input class="form-control" type="text" th:field="*{secondName}" id="secondName" placeholder="Enter second name"/>
+        <br>
+        <label for="lastName"><b>Last name:</b> </label>
+        <input class="form-control" type="text" th:field="*{lastName}" id="lastName" placeholder="Enter last name"/>
+        <br>
+        <label for="dateBirthday"><b>Date birthday:</b> </label>
+        <input class="form-control" type="text" th:field="*{dateBirthday}" id="dateBirthday" placeholder="Enter date birthday"/>
+        <br>
+        <label for="groupsId"><b>Groups id:</b> </label>
+        <input class="form-control" type="text" th:field="*{group.id}" id="groupsId" placeholder="Enter groups id"/>
+        <br>
+        <input class="btn btn-secondary d-grid gap-2 col-12 mx-auto" type="submit" value="Add new student"/>
+    </form>
+</div>
+</body>
+</html>

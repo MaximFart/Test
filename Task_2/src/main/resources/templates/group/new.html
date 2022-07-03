@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>New group</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div th:replace="nav_bar/index.html :: navigation"></div>
+<div class="d-grid gap-2 col-6 mx-auto">
+    <h3>Create new group</h3>
+    <form th:method="POST" th:action="@{/groups}" th:object="${group}">
+        <label for="name"><b>Name:</b> </label>
+        <input class="form-control" type="text" th:field="*{name}" id="name" placeholder="Enter Name"/>
+        <br>
+        <input class="btn btn-secondary d-grid gap-2 col-12 mx-auto" type="submit" value="Add group"/>
+    </form>
+</div>
+</body>
+</html>

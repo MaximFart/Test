@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Table groups</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div th:replace="nav_bar/index.html :: navigation"></div>
+<table class="table table-bordered table-sm">
+    <thead class="table-active">
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="group: ${groups}">
+        <td th:text="${group.getId()}">VALUE</td>
+        <td th:text="${group.getName()}">VALUE</td>
+        <td>
+            <a class="btn btn-info d-grid gap-2 col-12 mx-auto" th:href="@{/groups/{id}/edit(id=${group.getId()})}">Edit</a>
+            <form th:method="DELETE" th:action="@{/groups/{id}(id=${group.getId()})}">
+                <input class="btn btn-danger  d-grid gap-2 col-12 mx-auto" type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a class="btn-info" th:href="@{/groups/new}">Add new group</a>
+</body>
+</html>
